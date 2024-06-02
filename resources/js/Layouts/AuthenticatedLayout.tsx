@@ -169,6 +169,36 @@ export default function Authenticated({ user, header, children }: PropsWithChild
                         <ResponsiveNavLink href={route('dashboard')} active={route().current('dashboard')}>
                             Dashboard
                         </ResponsiveNavLink>
+
+                        {user.permissions.includes('view_tickets') &&
+                            <ResponsiveNavLink href={route('tickets.index')} active={route().current('tickets.*')}>
+                                Tickets
+                            </ResponsiveNavLink>
+                        }
+
+                        {user.permissions.includes('view_teams') &&
+                            <ResponsiveNavLink href={route('teams.index')} active={route().current('teams.*')}>
+                                Teams
+                            </ResponsiveNavLink>
+                        }
+
+                        {user.permissions.includes('view_team') &&
+                            <ResponsiveNavLink href={route('teams.my-team')} active={route().current('teams.*')}>
+                                My Team
+                            </ResponsiveNavLink>
+                        }
+
+                        {user.permissions.includes('view_users') &&
+                            <ResponsiveNavLink href={route('users.index')} active={route().current('users.*')}>
+                                Users
+                            </ResponsiveNavLink>
+                        }
+
+                        {user.permissions.includes('view_categories') &&
+                            <ResponsiveNavLink href={route('categories.index')} active={route().current('categories.*')}>
+                                Categories
+                            </ResponsiveNavLink>
+                        }
                     </div>
 
                     <div className="pt-4 pb-1 border-t border-gray-200">

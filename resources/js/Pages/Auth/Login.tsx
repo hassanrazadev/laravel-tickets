@@ -8,6 +8,7 @@ import { Label } from '@/Components/ui/label';
 import { Button } from '@/Components/ui/button';
 
 import { Head, Link, useForm } from '@inertiajs/react';
+import {Separator} from "@/Components/ui/separator";
 
 export default function Login({ status, canResetPassword }: { status?: string, canResetPassword: boolean }) {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -36,7 +37,7 @@ export default function Login({ status, canResetPassword }: { status?: string, c
 
             <form onSubmit={submit}>
                 <div>
-                    <Label htmlFor="email" >Email</Label>
+                    <Label htmlFor="email">Email</Label>
 
                     <Input
                         id="email"
@@ -49,11 +50,11 @@ export default function Login({ status, canResetPassword }: { status?: string, c
                         onChange={(e) => setData('email', e.target.value)}
                     />
 
-                    <InputError message={errors.email} className="mt-2" />
+                    <InputError message={errors.email} className="mt-2"/>
                 </div>
 
                 <div className="mt-4">
-                    <Label htmlFor="password" >Password</Label>
+                    <Label htmlFor="password">Password</Label>
 
                     <Input
                         id="password"
@@ -65,7 +66,7 @@ export default function Login({ status, canResetPassword }: { status?: string, c
                         onChange={(e) => setData('password', e.target.value)}
                     />
 
-                    <InputError message={errors.password} className="mt-2" />
+                    <InputError message={errors.password} className="mt-2"/>
                 </div>
 
                 <div className="block mt-4">
@@ -93,7 +94,20 @@ export default function Login({ status, canResetPassword }: { status?: string, c
                         Log in
                     </Button>
                 </div>
+
+                <Separator className={" mt-2"}/>
+
+                <div className="flex items-center justify-between mt-4">
+                    <Label>Don't have an account?</Label>
+                    <Link
+                        href={route('register')}
+                        className="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    >
+                        Create new account
+                    </Link>
+                </div>
+
             </form>
         </GuestLayout>
-    );
+);
 }
