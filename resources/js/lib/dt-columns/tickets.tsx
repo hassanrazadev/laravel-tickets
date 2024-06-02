@@ -88,7 +88,7 @@ const useColumns = () => {
                     {
                         row.original.assignedUsers.length ?
                             row.original.assignedUsers.map(user => (
-                                <TooltipProvider>
+                                <TooltipProvider key={user.id}>
                                     <Tooltip>
                                         <TooltipTrigger>
                                             <Avatar className={"w-8 h-8"}>
